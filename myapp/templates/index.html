@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}">
+    <title>Recruitment Startup</title>
+    <!-- Add your CSS stylesheets here -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <!-- Header Section -->
+        <header>
+            <nav>
+                <div class="container">
+                    <h1 class="logo">Recruitment Startup</h1>
+                    <ul class="menu">
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About</a></li>
+                        {% if user.is_authenticated %}
+                            <!-- Show a logout button if the user is authenticated -->
+                            <a href="{% url 'logout' %}" class="btn" id="log2">Logout</a>
+                        {% else %}
+                            <!-- Show login and register buttons if the user is not authenticated -->
+                            <li><a href="{% url 'login' %}" class="btn" id="log">Login</a></li>
+                            <li><a href="{% url 'register' %}" class="btn">Register</a></li>
+                        {% endif %}
+
+                </div>
+            </nav>
+        </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            {% if user.is_authenticated %}
+                <h2>Hello {{ user.username }}</h2>
+            {% else %}
+                <h2>Welcome to Our Recruitment Portal</h2>
+            {% endif %}
+            <p>We help companies hire top-notch software engineers, product managers, data scientists, and more.</p>
+            <a href="{% url 'login' %}" class="btn">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="service">
+                <img src="{% static 'Assets/software-engineer.png' %}" alt="Software Engineer Icon">
+                <h3>Software Engineers</h3>
+                <p>We connect you with talented software engineers who can contribute to your projects.</p>
+            </div>
+            <div class="service">
+                <img src="{% static 'Assets/product-manager.png' %}" alt="Product Manager Icon">
+                <h3>Product Managers</h3>
+                <p>Find skilled product managers to lead your product development and strategy.</p>
+            </div>
+            <div class="service">
+                <img src="{% static 'Assets/data-scientist.png' %}" alt="Data Scientist Icon">
+                <h3>Data Scientists</h3>
+                <p>Discover data scientists who can analyze your data and provide valuable insights.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>We are a dedicated team of recruitment experts with a passion for connecting companies with the right talents. Our platform simplifies the hiring process and helps you find the perfect candidates for your specific needs.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    {% if user.is_authenticated %}
+        <!-- Contact Section -->
+        <section class="contact" id="contact">
+            <div class="container">
+                <h2>Contact Us</h2>
+                <p>If you have any questions or need assistance, feel free to get in touch with us.</p>
+                <form action="/thanks/" method="POST">
+                    {% csrf_token %}
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+    {% endif %}
+
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Recruitment Startup. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Add your JavaScript scripts here -->
+    <script src="{% static 'script.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,331 @@
+/* Reset some default styles to ensure consistency across browsers */
+/* Import the Lato font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+/* Define a color scheme */
+:root {
+    --primary-color: #ff6f61;
+    --secondary-color: #ff9d76;
+    --tertiary-color: #ffe1a8;
+    --dark-color: #333;
+    --light-color: #f9f9f9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Use the Lato font and the color scheme */
+body {
+    font-family: 'Lato', sans-serif;
+    color: var(--dark-color);
+    line-height: 1.8;
+    font-size: 1.125rem; /* 18px */
+}
+
+/* Improve readability */
+h1, h2, h3 {
+    margin-bottom: 1.25rem; /* 20px */
+}
+
+p, ul, ol {
+    margin-bottom: 1.25rem; /* 20px */
+}
+
+/* Add hover effects */
+
+.menu li a:hover,
+.btn:hover,
+.contact button:hover {
+    color: #fff;
+    text-shadow: 0.0625rem 0.0625rem 0.0625rem #000; /* 1px 1px 1px */
+    background-color: var(--secondary-color);
+}
+
+.container {
+    max-width: 75rem; /* 1200px */
+    margin: 0 auto;
+    padding: 1.25rem; /* 20px */
+}
+
+/* Header Section */
+header {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 0.625rem 0; /* 10px */
+}
+
+.logo {
+    font-size: 1.5rem; /* 24px */
+    font-weight: bold;
+}
+
+.menu {
+    list-style: none;
+}
+
+.menu li {
+    display: inline-block;
+    margin-right: 1.25rem;
+}
+
+.menu li:last-child {
+    margin-right: 0;
+}
+
+.menu li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.3125rem 0.625rem; /* 5px 10px */
+}
+
+/* Add styles for the login and register buttons */
+.menu .btn {
+    background-color: #333;
+    color: #fff;
+    padding: 0.3125rem 0.625rem; /* 5px 10px */
+    border-radius: 0.3125rem; /* 5px */
+    margin-left: auto;
+}
+
+.menu .btn:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Hero Section */
+.hero {
+    background-color: var(--tertiary-color);
+    padding: 6.25rem 0; /* 100px */
+    text-align:center
+}
+
+.hero h2 {
+     font-size :2.25rem;/*36px*/
+     margin-bottom :1.25rem;/*20px*/
+}
+
+.hero p{
+     font-size :1.125rem;/*18px*/
+     margin-bottom :1.875rem;/*30px*/
+}
+.btn{
+     display:inline-block;
+     background-color:#333;
+     color:#fff;
+     padding :0.625rem;/*10px*/
+     text-decoration:none;
+     border-radius :0.3125rem;/*5px*/
+}
+
+
+/* Shift the login and register buttons to the right */
+.menu #log, .menu #log2 {
+     margin-left: 45rem;
+}
+
+.menu li:nth-last-child(2):hover, .menu li:nth-last-child(1):hover {
+    cursor: pointer;
+}
+
+/* Services Section */
+.services{
+     padding :5rem;/*80px*/
+     text-align:center
+}
+.services h2{
+     font-size :2.25rem;/*36px*/
+     margin-bottom :1.25rem;/*20px*/
+}
+.service{
+     margin-bottom :2.5rem;/*40px*/
+}
+.service img{
+     width :6.25rem;/*100px*/
+     height :6.25rem;/*100px*/
+     margin-bottom :1.25rem;/*20px*/
+}
+.service h3{
+     font-size :1.5rem;/*24px*/
+     margin-bottom :0.625rem;/*10px*/
+}
+/* About Section */
+.about{
+     background-color :var(--light-color);
+     padding :5rem;/*80px*/
+     text-align:center
+}
+.about h2{
+     font-size :2.25rem;/*36px*/
+     margin-bottom :1.25rem;/*20px*/
+}
+
+.contact {
+    background-color: #f4f4f4;
+    padding: 50px 0;
+}
+
+.contact h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.contact p {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.contact form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.contact form input,
+.contact form textarea {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.contact form button {
+    background-color: #333;
+    color: #fff;
+    padding: 15px 40px;
+    border: none;
+    cursor: pointer;
+}
+
+
+/* Footer Section */
+footer{
+     background-color :var(--primary-color);
+     color:#fff;
+     padding :0.625rem;/*10 px*/ 
+     text-align:center
+}
+
+/* Add keyframes for the fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Apply the animation to the hero section */
+.hero {
+    animation: fadeIn 2s ease-in;
+}
+
+/* Add a media query for screens smaller than 768px */
+@media (max-width: 48em) { /* 768px */
+    /* Change the layout of the navigation menu */
+    .menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu li {
+        margin-bottom: 1.25rem; /* 20px */
+    }
+
+    /* Adjust the font sizes and margins */
+    body {
+        font-size: 1rem; /* 16px */
+    }
+
+    h1, h2, h3 {
+        margin-bottom: 1rem; /* 16px */
+    }
+
+    p, ul, ol {
+        margin-bottom: 1rem; /* 16px */
+    }
+
+    .menu #log, .menu #log2 {
+        margin-left: 0rem;
+   }
+   
+}
+
+@media only screen and (max-width: 600px) {
+    /* styles for screens smaller than 600px */
+    body {
+      font-size: 16px;
+    }
+    .container {
+      width: 100%;
+      padding: 0;
+    }
+    .menu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  @media only screen and (min-width: 769px) and (max-width: 992px) {
+    /* styles for screens between 769px and 992px */
+    .container {
+      width: 90%;
+      padding: 0;
+    }
+  }
+  
+  @media only screen and (min-width: 993px) and (max-width: 1200px) {
+    /* styles for screens between 993px and 1200px */
+    .container {
+      width: 80%;
+      padding: 0;
+    }
+  }
+  @media only screen and (max-width: 480px) {
+    /* styles for screens smaller than 480px */
+    .container {
+      width: 100%;
+      padding: 0;
+    }
+    .menu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+  }
+  
+  @media only screen and (min-width: 481px) and (max-width: 600px) {
+    /* styles for screens between 481px and 600px */
+    .container {
+      width: 100%;
+      padding: 0;
+    }
+  }
+  
+  @media only screen and (min-width: 601px) and (max-width: 768px) {
+    /* styles for screens between 601px and 768px */
+    .container {
+      width: 90%;
+      padding: 0;
+    }
+  }
+  
+  @media only screen and (min-width: 769px) and (max-width: 992px) {
+    /* styles for screens between 769px and 992px */
+    .container {
+      width: 80%;
+      padding: 0;
+    }
+  }
+  
+  @media only screen and (min-width: 993px) and (max-width: 1200px) {
+    /* styles for screens between 993px and 1200px */
+    .container {
+      width: 70%;
+      padding: 0;
+    }
+  }
+    
+/* 640 768 1024 1280 1536 */

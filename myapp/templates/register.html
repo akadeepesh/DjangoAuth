@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'login2.css' %}">
+    <script src="{% static 'register2.js' %}"></script>
+    <title>Register</title>
+</head>
+<body>
+    <h1>Register</h1>
+    <form method="post" onsubmit="return validatePassword();">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Register</button>
+    </form>
+    
+</body>
+</html>
